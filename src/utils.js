@@ -18,3 +18,10 @@ export const getTaskDateProperties = (dueDate) => {
   const time = isDateShowing ? formatTime(dueDate) : ``;
   return {isExpired, isDateShowing, date, time};
 };
+
+export const createElement = (template) => {
+  const newElement = document.createElement(`div`);
+  newElement.innerHTML = template;
+
+  return newElement.firstChild;
+};

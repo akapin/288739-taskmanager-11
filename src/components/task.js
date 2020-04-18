@@ -1,4 +1,5 @@
-import {getTaskDateProperties, createElement} from "../utils.js";
+import AbstractComponent from "./abstract-component.js";
+import {getTaskDateProperties} from "../utils.js";
 
 const createTaskTemplate = (task) => {
   const {description, dueDate, color, repeatingDays, isArchive, isFavorite} = task;
@@ -53,26 +54,14 @@ const createTaskTemplate = (task) => {
   </article>`;
 };
 
-export default class Task {
+export default class Task extends AbstractComponent {
   constructor(task) {
-    this._task = task;
+    super();
 
-    this._element = null;
+    this._task = task;
   }
 
   getTemplate() {
     return createTaskTemplate(this._task);
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
   }
 }

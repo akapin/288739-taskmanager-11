@@ -1,6 +1,6 @@
 import AbstractComponent from "./abstract-component.js";
 import {COLORS, DAYS} from "../const.js";
-import {getTaskDateProperties} from "../utils.js";
+import {getTaskDateProperties} from "../utils/common.js";
 
 
 const createColorsMarkup = (colors, currentColor) => {

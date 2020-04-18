@@ -1,4 +1,4 @@
-import {MONTH_NAMES} from "./const.js";
+import {MONTH_NAMES} from "../const.js";
 
 const castTimeFormat = (value) => {
   return value < 10 ? `0${value}` : String(value);

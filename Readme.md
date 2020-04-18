@@ -3,6 +3,7 @@
 * Студент: [Александр Капин](https://up.htmlacademy.ru/ecmascript/11/user/288739).
 * Наставник: [Артем Приходько](https://htmlacademy.ru/profile/id1012525).
 
+
 ---
 
 _Не удаляйте и не изменяйте папки и файлы:_

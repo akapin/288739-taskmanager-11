@@ -23,3 +23,7 @@ export const render = (container, element, place = RenderPosition.BEFOREEND) => 
       break;
   }
 };
+
+export const replace = (parent, newElement, oldElement) => {
+  parent.replaceChild(newElement, oldElement);
+};

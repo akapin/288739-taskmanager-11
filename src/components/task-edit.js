@@ -12,7 +12,7 @@ const createColorsMarkup = (colors, currentColor) => {
       return (
         `<input
           type="radio"
-          id="color-${color}-${index}"
+          id="color-${color}--${index}"
           class="card__color-input card__color-input--${color} visually-hidden"
           name="color"
           value="${color}"

@@ -51,8 +51,8 @@ const createRepeatingDaysMarkup = (days, repeatingDays) => {
 
 
 const createTaskEditTemplate = (task, options = {}) => {
-  const {description, dueDate, color} = task;
-  const {isDateShowing, isRepeatingTask, activeRepeatingDays} = options;
+  const {description, dueDate} = task;
+  const {isDateShowing, isRepeatingTask, activeRepeatingDays, color} = options;
 
   const isBlockSaveButton = (isDateShowing && isRepeatingTask) || (isRepeatingTask && !isRepeating(activeRepeatingDays));
   const {isExpired, date, time} = getTaskDateProperties(dueDate);
@@ -141,6 +141,7 @@ export default class TaskEdit extends AbstractSmartComponent {
     this._isDateShowing = Boolean(task.dueDate);
     this._isRepeatingTask = Object.values(task.repeatingDays).some(Boolean);
     this._activeRepeatingDays = Object.assign({}, task.repeatingDays);
+    this._color = task.color;
     this._submitHandler = null;
 
     this._subscribeOnEvents();
@@ -151,6 +152,7 @@ export default class TaskEdit extends AbstractSmartComponent {
       isDateShowing: this._isDateShowing,
       isRepeatingTask: this._isRepeatingTask,
       activeRepeatingDays: this._activeRepeatingDays,
+      color: this._color,
     });
   }
 
@@ -169,6 +171,7 @@ export default class TaskEdit extends AbstractSmartComponent {
     this._isDateShowing = Boolean(task.dueDate);
     this._isRepeatingTask = Object.values(task.repeatingDays).some(Boolean);
     this._activeRepeatingDays = Object.assign({}, task.repeatingDays);
+    this._color = task.color;
 
     this.rerender();
   }
@@ -205,5 +208,12 @@ export default class TaskEdit extends AbstractSmartComponent {
         this.rerender();
       });
     }
+
+    element.querySelector(`.card__colors-wrap`)
+      .addEventListener(`change`, (evt) => {
+        this._color = evt.target.value;
+
+        this.rerender();
+      });
   }
 }

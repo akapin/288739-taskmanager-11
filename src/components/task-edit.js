@@ -1,13 +1,9 @@
 import AbstractSmartComponent from "./abstract-smart-component.js";
 import {COLORS, DAYS} from "../const.js";
-import {getTaskDateProperties} from "../utils/common.js";
+import {getTaskDateProperties, isRepeating} from "../utils/common.js";
 import flatpickr from "flatpickr";
 
 import "flatpickr/dist/flatpickr.min.css";
-
-const isRepeating = (repeatingDays) => {
-  return Object.values(repeatingDays).some(Boolean);
-};
 
 const createColorsMarkup = (colors, currentColor) => {
   return colors

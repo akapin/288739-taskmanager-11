@@ -23,7 +23,7 @@ export const isOneDay = (dateA, dateB) => {
 };
 
 export const getTaskDateProperties = (dueDate) => {
-  const isExpired = dueDate instanceof Date && dueDate < Date.now();
+  const isExpired = dueDate instanceof Date && isOverdueDate(dueDate, new Date());
   const isDateShowing = Boolean(dueDate);
   const date = (isDateShowing && dueDate) ? formatDate(dueDate) : ``;
   const time = (isDateShowing && dueDate) ? formatTime(dueDate) : ``;
